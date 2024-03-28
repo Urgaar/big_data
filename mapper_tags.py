@@ -9,11 +9,12 @@ def mapper_default_config():
             # Splitter la ligne en userID, movieID, tagID, timestamp
             userID, movieID, tagID, timestamp = line.strip().split(',')
             # Émettre la clé 'movieID' avec valeur 1 pour chaque tag
-            yield movieID, 1
+            print(f"{movieID}\t1")
             # Émettre la clé 'userID' avec valeur 1 pour chaque utilisateur
-            yield userID, 1
-        except Exception:
-            pass
+            print(f"{userID}\t1")
+        except Exception as e:
+            # Afficher les erreurs éventuelles
+            print("Erreur:", e, file=sys.stderr)
 
 if __name__ == "__main__":
     mapper_default_config()
